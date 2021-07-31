@@ -5,12 +5,14 @@ import (
 	"net"
 	"net/http"
 	"net/rpc"
+
+	"github.com/Haolaoda1/GOLang-Lab/net/rpc/domain"
 )
 
 type TestSVC struct {
 }
 
-func (t *TestSVC) ADD(args, reply *int) error {
+func (t *TestSVC) ADD(args *domain.Args, reply *int) error {
 	*reply = args.A + args.B
 	return nil
 }

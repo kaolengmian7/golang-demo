@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/rpc"
+
+	"github.com/Haolaoda1/GOLang-Lab/net/rpc/domain"
 )
 
 func main() {
@@ -10,5 +12,14 @@ func main() {
 	if err != nil {
 		fmt.Printf("%+v", err)
 	}
-	new(domain)
+	args := new(domain.Args)
+	args.B = 1
+	args.A = 1
+	var reply int
+	//同步调用
+	err = client.Call("TestSVC.ADD", args, &reply)
+	if err != nil {
+		fmt.Printf("%+v", err)
+	}
+	fmt.Println(reply)
 }
