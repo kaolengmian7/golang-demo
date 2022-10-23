@@ -10,9 +10,9 @@ type xmlAdapter struct {
 }
 
 func (x *xmlAdapter) ProcessXml(xml string) {
-	// 模拟对象转换：json -> xml
+	// 模拟对象转换：xml -> json
 	json := []byte(xml)
-	// 处理 xml 文件
+	// 处理 json 文件
 	x.ProcessJson(json)
 }
 
